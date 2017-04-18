@@ -1,6 +1,6 @@
-# DiceSurvivor
+# Honshu
 
-Creation of dice game where the goal is to survive on an island. A Robinson Crusoe like with dice. It's my first creation of game, inspired by a big boardgames experience.
+Reproduction of famous Honshu boardgame
 
 To run it: npm install, then npm start
 
