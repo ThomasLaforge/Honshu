@@ -1,0 +1,16 @@
+[{
+        "fight": {
+            "name": "Livre",
+            "strength": 0,
+            "power": "Phase -1"
+        },
+        "danger": {
+            "name": "Vers l'épave avec le radeau",
+            "freeCards": 1
+        },
+        "number": 1
+    },
+    {
+
+    }
+]
