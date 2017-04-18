@@ -1,11 +1,12 @@
 // imports
     import { Player }          from './Player';
-    import {  }              from './DiceSurvivor'
+    import { Deck }            from './Deck'
 // -------
 
 class Game {
 
-	private _player: Player; 
+	private _players: Player[]; 
+    private _deck: Deck;
 
 	constructor() {}
 	

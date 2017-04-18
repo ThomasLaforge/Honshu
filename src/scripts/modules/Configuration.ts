@@ -1,5 +1,3 @@
-export const DICE_COLLECTION__INITIAL_DICE_NUMBER = 3;
-
 /*
 
 import * as moment from 'moment'
