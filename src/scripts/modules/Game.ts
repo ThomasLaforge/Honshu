@@ -22,6 +22,9 @@ class Game {
         }
     }
 
+    // State //
+    start(){
+        this.timer.start();
     }
 
     // Deck //
