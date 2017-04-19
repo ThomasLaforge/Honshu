@@ -25,6 +25,10 @@ export const MAX_PLAYER = 5;
 export const CARD_ROW = 3;
 export const CARD_COL = 2;
 
+export const DRAW__DEFAULT_NB_CARD = 6;
+
+export const CHOSE_CARD__NB_CARD_WHEN_SWITCH_HANDS = 3;
+
 export const FINAL_COUNT__FIELD_VALUE   = 0;
 export const FINAL_COUNT__CITY_VALUE    = 1;
 export const FINAL_COUNT__FOREST_VALUE  = 2;

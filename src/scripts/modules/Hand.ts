@@ -8,7 +8,7 @@ class Hand {
 		this._cards = cards;
 	}
 
-	addNewCard(cards:Card|Array<Card>){
+	addNewCards(cards:Card|Array<Card>){
 		if(!Array.isArray(cards)){
 			cards = [cards]	
 		}

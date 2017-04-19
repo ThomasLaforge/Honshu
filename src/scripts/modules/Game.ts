@@ -24,6 +24,14 @@ class Game {
 
     }
 
+    // Deck //
+    draw(nbCardToDraw = DRAW__DEFAULT_NB_CARD){
+        this.players.forEach( p => {
+            let drawCards = this.deck.drawCards(nbCardToDraw);
+            p.hand.addNewCards(drawCards);
+        })
+    }
+
     getCityCount(){
         let cpt = 0;
         return cpt;    
