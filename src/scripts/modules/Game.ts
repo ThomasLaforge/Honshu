@@ -35,6 +35,27 @@ class Game {
         })
     }
 
+    // Hand //
+    switchHands(clockwise = true){
+        // save
+        let hands: Hand[] = [];
+        this.players.forEach( p => {
+            hands.push(p.hand);
+        })
+
+        // modify
+        let handToSavePosition = clockwise ? hands.length - 1 : 0 
+        let handToSave = hands[handToSavePosition];
+        hands.splice(handToSavePosition, 1);
+        hands.splice(clockwise ? 0 : hands.length, 0, handToSave);
+
+        // re integrate on player collection
+        this.players.forEach( (p, index) => {
+            p.hand = hands[index];
+        })
+    }
+
+    // Count //
     getCityCount(){
         let cpt = 0;
         return cpt;    
