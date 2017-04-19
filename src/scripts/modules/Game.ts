@@ -1,8 +1,12 @@
 // imports
-    import { Player }          from './Player';
-    import { Deck }            from './Deck';
-    import { Timer }            from './Timer';
-    import { Bonus }            from './Bonus';
+    import { Player }    from './Player';
+    import { Deck }      from './Deck';
+    import { Timer }     from './Timer';
+    import { Bonus }     from './Bonus';
+    import { Grid }      from './Grid';
+    import { Hand }      from './Hand';
+    import { HonshuMap } from './HonshuMap';
+    import { DRAW__DEFAULT_NB_CARD } from './Honshu';
 // -------
 
 class Game {
@@ -12,7 +16,11 @@ class Game {
     private _timer: Timer;
     private _bonus: Bonus;
 
-	constructor(bonus: Bonus = null) {
+	constructor(bonus: Bonus = null, autostart = true) {
+        if(autostart){ 
+            this.start();
+        }
+    }
 
     }
 
