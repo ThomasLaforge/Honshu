@@ -12,6 +12,7 @@
 export class Grid {
 
     private _grid: boolean[][];
+    private gridCopy: boolean[][];
     
     constructor(grid: boolean[][]){
         this._grid = grid;
@@ -22,7 +23,7 @@ export class Grid {
         return true;
     }
 
-    nbLine(){
+    nbRow(){
         return this.grid.length;
     }
     nbCol(){
@@ -31,7 +32,7 @@ export class Grid {
 
     isFull(){
         let cpt = 0; let i = 0; let j = 0;
-        while(i < this.nbLine() && cpt % this.nbCol() === 0){
+        while(i < this.nbRow() && cpt % this.nbCol() === 0){
             j = 0;
 
             while(j < this.nbCol() && this.grid[i][j]){
@@ -41,7 +42,7 @@ export class Grid {
             i++;
         }
 
-        return cpt === this.nbCol() * this.nbLine();
+        return cpt === this.nbCol() * this.nbRow();
     }
     isNotFull(){
         return !this.isFull();
@@ -49,7 +50,29 @@ export class Grid {
 
     // https://fr.wikipedia.org/wiki/Algorithme_de_remplissage_par_diffusion#En_balayant_les_lignes
     longestChain(){
+        let longestChain = 0;
+        this.gridCopy = this.grid;
 
+        for (let row = 0; row < this.nbRow() - 1; row++) {
+            for (let col = 0; col < this.nbCol() -1; col++) {
+                longestChain = Math.max(longestChain, this.areasize(row, col));
+            }
+        }
+
+        return longestChain;
+    }
+    
+    areasize(row: number, col: number): number {
+        if (row < 0 || col < 0 || row > this.nbRow() - 1 || col > this.nbCol() - 1 || !this.gridCopy[row][col])
+            return 0;
+
+       this.gridCopy[row][col] = false;
+
+        return 1
+            + this.areasize(row + 1, col)
+            + this.areasize(row - 1, col)
+            + this.areasize(row, col + 1)
+            + this.areasize(row, col - 1);
     }
 
     getHowManyOccurence(){
