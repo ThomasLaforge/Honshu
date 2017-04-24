@@ -18,7 +18,7 @@ class Game {
 
 	constructor(bonus: Bonus = null, autostart = true) {
         if(autostart){ 
-            this.start();
+            // this.start();
         }
     }
 
