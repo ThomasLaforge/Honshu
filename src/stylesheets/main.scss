@@ -3,3 +3,20 @@ body {
     // background-color: rgba(black, 0.5) !important;
     padding-bottom: 50px;
 }
+
+.grid-table{}
+
+.grid-box{
+    min-width: 20px;
+    min-height: 20px;
+    height:20px;
+
+    border: 1px solid grey;
+}
+
+.grid-box-fill {
+    background-color: black;
+}
+.grid-box-empty {
+    background-color: white;
+}

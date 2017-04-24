@@ -3,12 +3,13 @@
 
 // Model
     import { Game } from './modules/Game';
+    import { Grid } from './modules/Grid';
     let newGame  = new Game();
 
 // Game Config
 
 // Vue
-    import { actionBar }       from './Vue/actionBar';
+    import { grid }       from './Vue/grid';
 
 // VueIt8n
     // import * as VueI18n from 'vue-i18n'
@@ -24,14 +25,18 @@ let app = new Vue({
     el: '#app',
     data: (): { } => {
         return {
-            game : newGame
+            grid : new Grid([
+                [true, true, true],
+                [true, false, false],
+                [true, true, false],
+            ])
         }
     },
     computed: {
         canDraw : function(){ return this.game.playerCanDraw() } 
     },
     components:{
-        actionBar,
+        grid,
     },
     methods: {
        
