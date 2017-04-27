@@ -49,7 +49,7 @@ export class Grid {
     }
 
     // https://fr.wikipedia.org/wiki/Algorithme_de_remplissage_par_diffusion#En_balayant_les_lignes
-    longestChain(){
+    getLongestChain(){
         let longestChain = 0;
         this.gridCopy = this.grid;
 

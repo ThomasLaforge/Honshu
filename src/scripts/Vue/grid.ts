@@ -26,7 +26,7 @@ export const grid = {
     },
     computed : {
         howManyOccurence: function(){ return this.grid.getHowManyOccurence(); },
-        longestChain: function(){ return this.grid.longestChain() }
+        longestChain: function(){ return this.grid.getLongestChain() }
     },
     components : {
     },
