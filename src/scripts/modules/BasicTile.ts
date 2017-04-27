@@ -1,18 +1,18 @@
-import { FINAL_COUNT__FOREST_VALUE, FINAL_COUNT__CITY_VALUE, FINAL_COUNT__LAKE_VALUE } from './Honshu'
+import { FINAL_COUNT__FOREST_VALUE, FINAL_COUNT__CITY_VALUE, FINAL_COUNT__LAKE_VALUE, FINAL_COUNT__FIELD_VALUE } from './Honshu'
 
-export class BasicTile {
+export abstract class BasicTile {
 
     private _value: number;
 	
 	constructor(value: number) {
-		this._value = value;
+		this.value = value;
 	}
     
 // Getters / Setters
-	public get type(): number {
+	public get value(): number {
 		return this._value;
 	}
-	public set type(value: number) {
+	public set value(value: number) {
 		this._value = value;
 	}
 
@@ -21,8 +21,10 @@ export class BasicTile {
 export class FieldTile extends BasicTile {
 
 	constructor(){
-		super(FINAL_COUNT__FOREST_VALUE)
+		super(FINAL_COUNT__FIELD_VALUE)
 	}
+	
+	
 }
 
 export class CityTile extends BasicTile {
