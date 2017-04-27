@@ -9,6 +9,8 @@
 
 */
 
+import * as _ from 'lodash'
+
 export class Grid {
 
     private _grid: boolean[][];
@@ -60,6 +62,22 @@ export class Grid {
         }
 
         return longestChain;
+    }
+
+    getAllAreaSize(){
+        this.gridCopy = _.cloneDeep(this.grid);
+        let areaLenghts = [];
+
+        for (let row = 0; row < this.nbRow() - 1; row++) {
+            for (let col = 0; col < this.nbCol() -1; col++) {
+                let areaSize = this.areasize(row, col);
+                if(areaSize > 0){
+                    areaLenghts.push(areaSize);
+                }
+            }
+        }
+
+        return areaLenghts;
     }
     
     areasize(row: number, col: number): number {
