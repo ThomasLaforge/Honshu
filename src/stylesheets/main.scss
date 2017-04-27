@@ -20,3 +20,52 @@ body {
 .grid-box-empty {
     background-color: white;
 }
+
+.tile-type-ForestTile{
+    background-color: green;
+}
+
+.tile-type-LakeTile{
+    background-color: blue;
+}
+
+.tile-type-FieldTile{
+    background-color: orange;
+}
+
+.tile-type-CityTile{
+    background-color: brown;
+}
+
+.tile-type-ProductionTile{
+    background-color: grey;
+}
+
+.tile-type-ManufacturingTile{
+    background-color: white;
+}
+
+.tile-resource{
+    min-width: 10px;
+    min-height: 10px;
+    height:10px;
+    width:10px;
+
+    margin: auto;
+}
+
+.tile-resource-Fish{
+    background-color: blue;
+}
+
+.tile-resource-Gold{
+    background-color: yellow;
+}
+
+.tile-resource-Stone{
+    background-color: black;
+}
+
+.tile-resource-Iron{
+    background-color: lightgray;
+}

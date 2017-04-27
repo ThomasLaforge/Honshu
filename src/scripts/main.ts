@@ -5,7 +5,10 @@
     import { Game } from './modules/Game';
     import { Grid } from './modules/Grid';
     import { HonshuMap } from './modules/HonshuMap';
-    import { ForestTile, CityTile, LakeTile } from './modules/BasicTile'
+    import { ResourceType } from './modules/Honshu';
+    import { ManufacturingTile } from './modules/ManufacturingTile';
+    import { ProductionTile } from './modules/ProductionTile';
+    import { ForestTile, CityTile, LakeTile, FieldTile } from './modules/BasicTile'
     let newGame  = new Game();
 
 // Game Config
@@ -29,9 +32,9 @@ let app = new Vue({
     data: (): { } => {
         return {
             map: new HonshuMap([
-                [new ForestTile(), new LakeTile(), new LakeTile() ],
-                [ new LakeTile(), new ForestTile(), new ForestTile()],
-                [new LakeTile(),  new LakeTile(), new ForestTile()] 
+                [new ForestTile(), new ManufacturingTile(ResourceType.Fish), new LakeTile() ],
+                [ new FieldTile(), new ForestTile(), new ProductionTile(ResourceType.Fish)],
+                [new LakeTile(),  new LakeTile(), new CityTile()] 
             ]),
             grid : new Grid([
                 [true, true, true],
