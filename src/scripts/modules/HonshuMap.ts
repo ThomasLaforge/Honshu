@@ -24,6 +24,48 @@ export class HonshuMap {
 
 		return new Grid(gridArr);
 	}
+
+	// Count //
+    getFieldCount(){
+        let gridField = this.extract(FieldTile.name);
+		return gridField.getHowManyOccurence() * FINAL_COUNT__FIELD_VALUE;
+    }
+
+    getCityCount(){
+        let gridCity = this.extract(CityTile.name);
+        return gridCity.getLongestChain() * FINAL_COUNT__CITY_VALUE;
+    }
+
+    getForestCount(){
+        let gridForest = this.extract(ForestTile.name);
+        return gridForest.getHowManyOccurence() * FINAL_COUNT__FOREST_VALUE;
+    }
+    
+    getLakeCount(){
+        let gridLake = this.extract(LakeTile.name);
+		let areaLengths = gridLake.getAllAreaSize();
+		console.log(areaLengths, _.sum(areaLengths.map(areaLength => { return (areaLength - 1) * FINAL_COUNT__LAKE_VALUE}) ))
+        return _.sum(areaLengths.map(areaLength => { return (areaLength - 1) * FINAL_COUNT__LAKE_VALUE}) );
+    }
+
+    getManufacturingCount(){
+        let cpt = 0;
+        return cpt;
+    }
+
+    getBonusCount(){
+        let cpt = 0;
+
+        // if(this.bonus){
+
+        // }
+
+        return cpt;        
+    }
+
+    getTotalCount(){
+        return this.getCityCount() + this.getForestCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
+    }
     
 	public get map(): Tile[][] {
 		return this._map;
