@@ -55,41 +55,6 @@ class Game {
         })
     }
 
-    // Count //
-    getCityCount(){
-        let cpt = 0;
-        return cpt;    
-    }
-
-    getForestCount(){
-        let cpt = 0;
-        return cpt;    
-    }
-    
-    getLakeCount(){
-        let cpt = 0;
-        return cpt;    
-    }
-
-    getManufacturingCount(){
-        let cpt = 0;
-        return cpt;    
-    }
-
-    getBonusCount(){
-        let cpt = 0;
-
-        if(this.bonus){
-
-        }
-
-        return cpt;        
-    }
-
-    getTotalCount(){
-        return this.getCityCount() + this.getForestCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
-    }
-
 // Getters / Setters
 
 	public get players(): Player[] {

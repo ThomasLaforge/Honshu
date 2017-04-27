@@ -4,12 +4,15 @@
 // Model
     import { Game } from './modules/Game';
     import { Grid } from './modules/Grid';
+    import { HonshuMap } from './modules/HonshuMap';
+    import { ForestTile, CityTile, LakeTile } from './modules/BasicTile'
     let newGame  = new Game();
 
 // Game Config
 
 // Vue
     import { grid }       from './Vue/grid';
+    import { honshuMap }       from './Vue/honshuMap';
 
 // VueIt8n
     // import * as VueI18n from 'vue-i18n'
@@ -25,9 +28,14 @@ let app = new Vue({
     el: '#app',
     data: (): { } => {
         return {
+            map: new HonshuMap([
+                [new ForestTile(), new LakeTile(), new LakeTile() ],
+                [ new LakeTile(), new ForestTile(), new ForestTile()],
+                [new LakeTile(),  new LakeTile(), new ForestTile()] 
+            ]),
             grid : new Grid([
                 [true, true, true],
-                [true, false, false],
+                [true, true, false],
                 [true, true, false],
             ])
         }
@@ -37,9 +45,12 @@ let app = new Vue({
     },
     components:{
         grid,
+        honshuMap
     },
     methods: {
-       
+       extract: function(){
+           this.grid = this.map.extract(ForestTile.name)
+       }
     }
 })
 
