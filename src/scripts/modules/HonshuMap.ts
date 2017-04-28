@@ -28,23 +28,27 @@ export class HonshuMap {
 	// Count //
     getFieldCount(){
         let gridField = this.extract(FieldTile.name);
+        console.log('grid Field', gridField)
 		return gridField.getHowManyOccurence() * FINAL_COUNT__FIELD_VALUE;
     }
 
     getCityCount(){
         let gridCity = this.extract(CityTile.name);
+        console.log('grid City', gridCity, gridCity.getLongestChain())        
         return gridCity.getLongestChain() * FINAL_COUNT__CITY_VALUE;
     }
 
     getForestCount(){
         let gridForest = this.extract(ForestTile.name);
+        console.log('grid Forest', gridForest)
         return gridForest.getHowManyOccurence() * FINAL_COUNT__FOREST_VALUE;
     }
     
     getLakeCount(){
         let gridLake = this.extract(LakeTile.name);
+        console.log('grid Lake', gridLake)        
 		let areaLengths = gridLake.getAllAreaSize();
-		console.log(areaLengths, _.sum(areaLengths.map(areaLength => { return (areaLength - 1) * FINAL_COUNT__LAKE_VALUE}) ))
+        console.log('areaLength LakeCount', areaLengths)
         return _.sum(areaLengths.map(areaLength => { return (areaLength - 1) * FINAL_COUNT__LAKE_VALUE}) );
     }
 
@@ -64,7 +68,8 @@ export class HonshuMap {
     }
 
     getTotalCount(){
-        return this.getCityCount() + this.getForestCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
+        console.log(this.getCityCount(), this.getForestCount(), this.getFieldCount(), this.getLakeCount(), this.getManufacturingCount(), this.getBonusCount());
+        return this.getCityCount() + this.getForestCount() + this.getFieldCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
     }
     
 	public get map(): Tile[][] {

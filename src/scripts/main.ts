@@ -44,7 +44,6 @@ let app = new Vue({
         }
     },
     computed: {
-        canDraw : function(){ return this.game.playerCanDraw() } 
     },
     components:{
         grid,
@@ -52,7 +51,7 @@ let app = new Vue({
     },
     methods: {
        extract: function(){
-           this.grid = this.map.extract(ForestTile.name)
+           this.grid = this.map.extract(LakeTile.name)
        }
     }
 })

@@ -53,10 +53,10 @@ export class Grid {
     // https://fr.wikipedia.org/wiki/Algorithme_de_remplissage_par_diffusion#En_balayant_les_lignes
     getLongestChain(){
         let longestChain = 0;
-        this.gridCopy = this.grid;
+        this.gridCopy = _.cloneDeep(this.grid);    
 
-        for (let row = 0; row < this.nbRow() - 1; row++) {
-            for (let col = 0; col < this.nbCol() -1; col++) {
+        for (let row = 0; row < this.nbRow(); row++) {
+            for (let col = 0; col < this.nbCol(); col++) {
                 longestChain = Math.max(longestChain, this.areasize(row, col));
             }
         }
@@ -68,8 +68,8 @@ export class Grid {
         this.gridCopy = _.cloneDeep(this.grid);
         let areaLenghts = [];
 
-        for (let row = 0; row < this.nbRow() - 1; row++) {
-            for (let col = 0; col < this.nbCol() -1; col++) {
+        for (let row = 0; row < this.nbRow(); row++) {
+            for (let col = 0; col < this.nbCol(); col++) {
                 let areaSize = this.areasize(row, col);
                 if(areaSize > 0){
                     areaLenghts.push(areaSize);
