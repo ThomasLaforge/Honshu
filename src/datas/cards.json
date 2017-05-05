@@ -1,0 +1,662 @@
+[
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 4, "resource": 3 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 4, "resource": 1 },
+            { "type": 3 }
+        ],
+        "value": 1
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 0 },
+            { "type": 4, "resource": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 3 }
+        ],
+        "value": 2
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 4, "resource": 1 },
+            { "type": 3 },
+            { "type": 4, "resource": 0 }
+        ],
+        "value": 3
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 2 },
+            { "type": 3 },
+            { "type": 4, "resource": 1 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 0 }
+        ],
+        "value": 4
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 2 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 5
+    },
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 4, "resource": 0 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 6
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 4, "resource": 0 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 }
+        ],
+        "value": 7
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 4, "resource": 3 }
+        ],
+        "value": 8
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 4, "resource": 1 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 9
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 4, "resource": 3 },
+            { "type": 0 }
+        ],
+        "value": 10
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 4, "resource": 1 },
+            { "type": 0 },
+            { "type": 1 },
+            { "type": 2 }
+        ],
+        "value": 11
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 0, "points": 3 },
+            { "type": 4, "resource": 2 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 3 }
+        ],
+        "value": 12
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 1, "points": 3 },
+            { "type": 4, "resource": 3 }
+        ],
+        "value": 13
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 4, "resource": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 5, "resource": 2, "points": 3 }
+        ],
+        "value": 14
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 4, "resource": 2 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 1 }
+        ],
+        "value": 15
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 5, "resource": 3, "points": 3 },
+            { "type": 0 },
+            { "type": 4, "resource": 0 },
+            { "type": 3 },
+            { "type": 1 }
+        ],
+        "value": 16
+    },
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 5, "resource": 3, "points": 3 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 17
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 5, "resource": 0, "points": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 18
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 5, "resource": 1, "points": 3 },
+            { "type": 2 },
+            { "type": 3 }
+        ],
+        "value": 19
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 2, "points": 3 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 2 },
+            { "type": 2 }
+        ],
+        "value": 20
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 2 },
+            { "type": 5, "resource": 3, "points": 3 }            
+        ],
+        "value": 21
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 1, "points": 3 },            
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 1 }
+        ],
+        "value": 22
+    },
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 5, "resource": 2, "points": 3 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 }
+        ],
+        "value": 23
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 5, "resource": 0, "points": 3 }
+        ],
+        "value": 24
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 }
+        ],
+        "value": 25
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 }
+        ],
+        "value": 26
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 2 }
+        ],
+        "value": 27
+    },
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 28
+    },
+    {
+        "tiles": [
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 4, "resource": 3 },
+            { "type": 5, "resource": 2, "points": 4 },
+            { "type": 3 }
+        ],
+        "value": 29
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 3, "points": 4 },            
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 4, "resource": 2 }
+        ],
+        "value": 30
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 1 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 5, "resource": 0, "points": 4 },
+            { "type": 4, "resource": 3 }
+        ],
+        "value": 31
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 4, "resource": 0 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 1, "points": 4 }
+        ],
+        "value": 32
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 5, "resource": 0, "points": 4 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 1 },
+            { "type": 4, "resource": 1 }
+        ],
+        "value": 33
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 5, "resource": 1, "points": 4 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 4, "resource": 2 }
+        ],
+        "value": 34
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 1 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 5, "resource": 2, "points": 4 },
+            { "type": 3 },
+            { "type": 3 }
+        ],
+        "value": 35
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 5, "resource": 3, "points": 4 },
+            { "type": 2 },
+            { "type": 4, "resource": 0 },
+            { "type": 1 }
+        ],
+        "value": 36
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 5, "resource": 1, "points": 2 },
+            { "type": 4, "resource": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 3 }
+        ],
+        "value": 37
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 2, "points": 2 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 4, "resource": 3 },
+            { "type": 3 }
+        ],
+        "value": 38
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 4, "resource": 2 },
+            { "type": 0 },
+            { "type": 5, "resource": 0, "points": 2 }
+        ],
+        "value": 39
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 0 },
+            { "type": 5, "resource": 3, "points": 2 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 40
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 4, "resource": 1 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 5, "resource": 2, "points": 2 },
+            { "type": 0 }
+        ],
+        "value": 41
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 3, "points": 2 },
+            { "type": 0 },
+            { "type": 2 },
+            { "type": 4, "resource": 0 },
+            { "type": 3 },
+            { "type": 3 }
+        ],
+        "value": 42
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 4, "resource": 2 },
+            { "type": 5, "resource": 1, "points": 2 }
+        ],
+        "value": 43
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 5, "resource": 0, "points": 2 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 4, "resource": 2 },
+            { "type": 3 }
+        ],
+        "value": 44
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 4, "resource": 1 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 5, "resource": 0, "points": 2 },
+            { "type": 3 }
+        ],
+        "value": 45
+    },
+    {
+        "tiles": [
+            { "type": 4, "resource": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 1, "points": 2 },
+            { "type": 3 },
+            { "type": 0 }
+        ],
+        "value": 46
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 2, "points": 2 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 4, "resource": 0 }
+        ],
+        "value": 47
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 5, "resource": 3, "points": 2 },
+            { "type": 4, "resource": 1 },
+            { "type": 2 }
+        ],
+        "value": 48
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 0 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 }
+        ],
+        "value": 49
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 3 }
+        ],
+        "value": 50
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 2 }
+        ],
+        "value": 51
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 2 },
+            { "type": 0 }
+        ],
+        "value": 52
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 5, "resource": 3, "points": 2 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 }
+        ],
+        "value": 53
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 0, "points": 2 },
+            { "type": 3 },
+            { "type": 0 }
+        ],
+        "value": 54
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 5, "resource": 1, "points": 2 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 3 }
+        ],
+        "value": 55
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 5, "resource": 2, "points": 2 },
+            { "type": 2 }
+        ],
+        "value": 56
+    },
+    {
+        "tiles": [
+            { "type": 2 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 5, "resource": 2, "points": 2 }
+        ],
+        "value": 57
+    },
+    {
+        "tiles": [
+            { "type": 3 },
+            { "type": 5, "resource": 3, "points": 2 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 2 }
+        ],
+        "value": 58
+    },
+    {
+        "tiles": [
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 3 },
+            { "type": 2 },
+            { "type": 5, "resource": 1, "points": 2 },
+            { "type": 2 }
+        ],
+        "value": 59
+    },
+    {
+        "tiles": [
+            { "type": 5, "resource": 0, "points": 2 },
+            { "type": 2 },
+            { "type": 3 },
+            { "type": 0 },
+            { "type": 3 },
+            { "type": 2 }
+        ],
+        "value": 60
+    }
+]
