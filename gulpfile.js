@@ -40,7 +40,7 @@ gulp.task('compass', () => {
             css: 'dist/stylesheets',
             sass: 'src/stylesheets'
         }))
-        .on('error', () => { this.emit('end'); })
+        .on('error', function(e){ console.log('sass error: ', e); this.emit('end'); })
         .pipe(gulp.dest('dist/stylesheets'));
 });
 
