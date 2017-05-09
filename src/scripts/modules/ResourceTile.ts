@@ -1,12 +1,10 @@
-import { Tile } from './Tile'
 import { ResourceType } from './Honshu'
 
-export abstract class ResourceTile extends Tile {
+export abstract class ResourceTile {
 
     protected _resource: ResourceType;
 
     constructor(resource: ResourceType){
-        super();
         this._resource = resource;
     }
 
