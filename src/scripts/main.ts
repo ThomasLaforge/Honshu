@@ -10,12 +10,16 @@
     import { ProductionTile } from './modules/ProductionTile';
     import { ForestTile, CityTile, LakeTile, FieldTile } from './modules/BasicTile'
     let newGame  = new Game();
+    let player = newGame.players[0]
+    console.log(player)
 
 // Game Config
 
 // Vue
     import { grid }       from './Vue/grid';
     import { honshuMap }       from './Vue/honshuMap';
+    import { infoBar }       from './Vue/infoBar';
+    import { hand }       from './Vue/hand';
 
 // VueIt8n
     // import * as VueI18n from 'vue-i18n'
@@ -36,23 +40,18 @@ let app = new Vue({
                 [ new FieldTile(), new ForestTile(), new ProductionTile(ResourceType.Fish)],
                 [new LakeTile(),  new LakeTile(), new CityTile()] 
             ]),
-            grid : new Grid([
-                [true, true, true],
-                [true, true, false],
-                [true, true, false],
-            ])
+            player: player
         }
     },
     computed: {
     },
     components:{
-        grid,
-        honshuMap
+        honshuMap,
+        hand,
+        infoBar
     },
     methods: {
-       extract: function(){
-           this.grid = this.map.extract(LakeTile.name)
-       }
+
     }
 })
 
