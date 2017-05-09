@@ -22,8 +22,8 @@
 
         <div id="app">
             <honshu-map :map="map"></honshu-map>
-            <info-bar :score="map.getTotalCount()"></info-bar>
-
+            <info-bar :player="player" :score="map.getTotalCount()"></info-bar>
+            <hand :hand="player.hand"></hand>
         </div>
 
         <!-- - - - - - - - -->

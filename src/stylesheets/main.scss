@@ -69,3 +69,16 @@ body {
 .tile-resource-Iron{
     background-color: lightgray;
 }
+
+.hand {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+    display: flex;
+    justify-content:space-around;
+    .card{
+        .card-value{
+            text-align: center;
+        }
+    }
+}
