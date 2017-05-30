@@ -1,18 +1,18 @@
-import {Card} from './Card'
+import {PlayableCard} from './PlayableCard'
 
 class Hand {
     
-    private _cards:Array<Card>;
+    private _cards:PlayableCard[];
 
-	constructor(cards: Array<Card> = []) {
+	constructor(cards: PlayableCard[] = []) {
 		this._cards = cards;
 	}
 
-	addNewCards(cards:Card|Array<Card>){
+	addNewCards(cards: PlayableCard | PlayableCard[]){
 		if(!Array.isArray(cards)){
 			cards = [cards]	
 		}
-		cards.forEach(c => {
+		cards.forEach( (c: PlayableCard) => {
 			this.cards.push(c)
 		})
 	}
@@ -21,11 +21,11 @@ class Hand {
 		return this.cards.length
 	}
 
-	public get cards(): Array<Card> {
+	public get cards(): PlayableCard[] {
 		return this._cards;
 	}
 
-	public set cards(value: Array<Card>) {
+	public set cards(value: PlayableCard[]) {
 		this._cards = value;
 	}
     

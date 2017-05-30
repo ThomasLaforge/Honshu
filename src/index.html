@@ -21,8 +21,9 @@
         <h1 class="title-top">Honshu</h1>
 
         <div id="app">
-            <grid :grid="grid"></grid>
-            <honshu-map :map="map" @extract="extract"></honshu-map>
+            <honshu-map :map="map"></honshu-map>
+            <info-bar :player="player" :score="map.getTotalCount()"></info-bar>
+            <hand :hand="player.hand"></hand>
         </div>
 
         <!-- - - - - - - - -->

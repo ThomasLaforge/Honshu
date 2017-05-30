@@ -1,19 +1,19 @@
 // imports
-    import { Player }    from './Player';
-    import { Deck }      from './Deck';
-    import { Card }      from './Card';
-    import { Timer }     from './Timer';
-    import { Bonus }     from './Bonus';
-    import { Grid }      from './Grid';
-    import { Hand }      from './Hand';
-    import { HonshuMap } from './HonshuMap';
+    import { PlayableCard }          from './PlayableCard';
+    import { Player }                from './Player';
+    import { PlayableCardDeck }      from './PlayableCardDeck';
+    import { Timer }                 from './Timer';
+    import { Bonus }                 from './Bonus';
+    import { Grid }                  from './Grid';
+    import { Hand }                  from './Hand';
+    import { HonshuMap }             from './HonshuMap';
     import { DRAW__DEFAULT_NB_CARD } from './Honshu';
 // -------
 
 class Game {
 
 	private _players: Player[]; 
-    private _deck: Deck;
+    private _playableCardDeck: PlayableCardDeck;
     private _timer: Timer;
     private _bonus: Bonus;
 
@@ -21,6 +21,9 @@ class Game {
         if(autostart){ 
             // this.start();
         }
+        this.playableCardDeck = new PlayableCardDeck();
+        this.players = [ new Player('Thomas') ]
+        this.draw();
     }
 
     // State //
@@ -28,15 +31,15 @@ class Game {
         this.timer.start();
     }
 
-    // Deck //
+    // PlayableCardDeck //
     draw(nbCardToDraw = DRAW__DEFAULT_NB_CARD){
         this.players.forEach( p => {
-            let drawCards = this.deck.drawCards(nbCardToDraw);
-            p.hand.addNewCards(drawCards);
+            let drawedCards = this.playableCardDeck.drawCards(nbCardToDraw);
+            p.hand.addNewCards(drawedCards);
         })
     }
 
-    play(p: Player, card: Card, x: number, y: number){
+    play(p: Player, card: PlayableCard, x: number, y: number){
         
     }
 
@@ -68,11 +71,11 @@ class Game {
 	public set players(value: Player[]) {
 		this._players = value;
 	}
-	public get deck(): Deck {
-		return this._deck;
+	public get playableCardDeck(): PlayableCardDeck {
+		return this._playableCardDeck;
 	}
-	public set deck(value: Deck) {
-		this._deck = value;
+	public set playableCardDeck(value: PlayableCardDeck) {
+		this._playableCardDeck = value;
 	}
 	public get timer(): Timer {
 		return this._timer;

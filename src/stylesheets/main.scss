@@ -1,10 +1,15 @@
 body {
     box-sizing: border-box !important;
     // background-color: rgba(black, 0.5) !important;
-    padding-bottom: 50px;
+    width:80%;
+    margin: auto;
 }
 
-.grid-table{}
+
+
+.grid-table{
+    margin: auto;
+}
 
 .grid-box{
     min-width: 20px;
@@ -68,4 +73,17 @@ body {
 
 .tile-resource-Iron{
     background-color: lightgray;
+}
+
+.hand {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+    display: flex;
+    justify-content:space-around;
+    .card{
+        .card-value{
+            text-align: center;
+        }
+    }
 }

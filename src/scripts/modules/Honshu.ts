@@ -19,6 +19,22 @@ export enum FaceVersion {
     B
 }
 
+export interface TileInterface {
+    type: TileType,
+    resource?: ResourceType,
+    points?: number
+}
+
+export interface PlayableCardInterface {
+    value: number,
+    tiles: TileInterface[]
+}
+
+export interface PlayableCardInterface {
+    face: FaceVersion,
+    tiles: TileInterface[]
+}
+
 export const MIN_PLAYER = 2;
 export const MAX_PLAYER = 5;
 

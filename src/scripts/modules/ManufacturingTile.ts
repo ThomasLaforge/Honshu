@@ -3,12 +3,12 @@ import { ResourceType } from './Honshu'
 
 export class ManufacturingTile extends ResourceTile {
 
-    private _value: boolean;
+    private _points: number;
     private _complete: boolean;  
 
-    constructor(resourceType: ResourceType, value = false, complete = false){
+    constructor(resourceType: ResourceType, points = 2, complete = false){
         super(resourceType);
-        this._value = value;
+        this._points = points;
         this._complete = complete;
     }
 
@@ -17,11 +17,11 @@ export class ManufacturingTile extends ResourceTile {
     }
 
 // Getters / Setters
-	public get value(): boolean {
-		return this._value;
+	public get points(): number {
+		return this._points;
 	}
-	public set value(value: boolean) {
-		this._value = value;
+	public set points(points: number) {
+		this._points = points;
 	}
 	public get complete(): boolean {
 		return this._complete;

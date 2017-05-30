@@ -1,20 +1,17 @@
-import {Card} from './Card';
 import * as _ from 'lodash';
 
 export abstract class Deck {
     protected arrayDeck : Array<any>;
     protected arrayDiscard : Array<any>;
 
-    constructor() {
-        this.arrayDeck = []
-        this.arrayDiscard = []
+    constructor( arrayDeck: any[] = [], arrayDiscard: any[] = []) {
+        this.arrayDeck = arrayDeck;
+        this.arrayDiscard = arrayDiscard;
         this.initDeck();
         this.shuffle();
     }
 
-    initDeck(){
-        this.arrayDeck = [];
-    }
+    abstract initDeck(): void;
 
     // States of arrays : deck and discard
 
