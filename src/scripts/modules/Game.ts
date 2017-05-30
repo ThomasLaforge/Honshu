@@ -1,6 +1,7 @@
 // imports
     import { Player }    from './Player';
     import { Deck }      from './Deck';
+    import { Card }      from './Card';
     import { Timer }     from './Timer';
     import { Bonus }     from './Bonus';
     import { Grid }      from './Grid';
@@ -33,6 +34,10 @@ class Game {
             let drawCards = this.deck.drawCards(nbCardToDraw);
             p.hand.addNewCards(drawCards);
         })
+    }
+
+    play(p: Player, card: Card, x: number, y: number){
+        
     }
 
     // Hand //
