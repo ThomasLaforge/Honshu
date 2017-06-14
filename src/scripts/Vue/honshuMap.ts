@@ -1,10 +1,10 @@
 import { ResourceType } from '../modules/Honshu'
 
 let template = `
-<div class="grid" @dragover.prevent @drop="onDropCard" @dragenter="onDragEnterCard">
+<div class="grid">
     <table class="grid-table">
-        <tr v-for="row in map.map">
-            <td v-for="tile in row" class="grid-box" :class="'tile-type-' + tile.constructor.name">
+        <tr v-for="(row, i) in map.map">
+            <td v-for="(tile, j) in row" class="grid-box" :class="'tile-type-' + tile.constructor.name" @dragover.prevent @drop="(e) => { onDropCard(e, i,j) }" @dragenter="onDragEnterCard">
                 <div v-if="tile.resource || tile.resource === 0" class="tile-resource" :class="'tile-resource-' + tileResourceName(tile)" />
             </td>
         </tr>
@@ -28,11 +28,12 @@ export const honshuMap = {
         tileResourceName: function(tile:any){
             return ResourceType[tile.resource]
         },
-        onDropCard(){
-            console.log('on drop card')
+        onDropCard(e: DragEvent, x: number, y: number){
+            // console.log('on drop card', x, y)
+            this.$emit('add-card', x, y)
         },
-        onDragEnterCard(){
-            console.log('on Drag Enter card')
+        onDragEnterCard(e: DragEvent){
+            // console.log('on Drag Enter card', e)
         }
     }
 };

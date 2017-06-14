@@ -3,6 +3,8 @@
 
 // Model
     import { Game } from './modules/Game';
+    import { PlayableCard } from './modules/PlayableCard';
+    import { Player } from './modules/Player';
     import { Grid } from './modules/Grid';
     import { HonshuMap } from './modules/HonshuMap';
     import { ResourceType } from './modules/Honshu';
@@ -29,18 +31,19 @@
     // Object.keys(locales).forEach(function (lang) {
     //     Vue.locale(lang, locales[lang])
     // })
-// Main
 
+// Main
 let app = new Vue({
     el: '#app',
-    data: (): { } => {
+    data: (): { map: HonshuMap, player: Player, dragdrop: any } => {
         return {
             map: new HonshuMap([
                 [new ForestTile(), new ManufacturingTile(ResourceType.Fish), new LakeTile() ],
                 [ new FieldTile(), new ForestTile(), new ProductionTile(ResourceType.Fish)],
                 [new LakeTile(),  new LakeTile(), new CityTile()] 
             ]),
-            player: player
+            player: player,
+            dragdrop: {}
         }
     },
     computed: {
@@ -51,7 +54,18 @@ let app = new Vue({
         infoBar
     },
     methods: {
-
+        selectCard(card: PlayableCard, i: number, j: number){
+            console.log('main:selectCard:', card, i, j)
+            this.dragdrop.card = card;
+            this.dragdrop.i = i;
+            this.dragdrop.j = j;
+        },
+        addCard(x: number, y: number){
+            this.dragdrop.x = x
+            this.dragdrop.y = y
+            console.log('main:addCard:', this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.x, this.dragdrop.y)          
+            this.map.addCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.x, this.dragdrop.y)
+        }
     }
 })
 

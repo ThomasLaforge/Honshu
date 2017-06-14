@@ -39,8 +39,8 @@ class Game {
         })
     }
 
-    play(p: Player, card: PlayableCard, x: number, y: number){
-        
+    play(p: Player, card: PlayableCard, col: number, row: number, x: number, y: number ){
+        p.map.addCard(card, col, row, x, y)
     }
 
     // Hand //

@@ -11,7 +11,7 @@ export class PlayableCardDeck extends Deck {
     }
 
     initDeck(deck?: PlayableCardInterface[]){
-        this.arrayDeck = deck ? deck : playableDeckJson.map( (cardDef: PlayableCardInterface) => {
+        this.arrayDeck = deck ? deck : playableDeckJson.map( (cardDef: PlayableCardInterface, id: number) => {
             let tiles = cardDef.tiles.map( (tileDef:TileInterface) => {
                 return TileCreator.create(tileDef)
             })
