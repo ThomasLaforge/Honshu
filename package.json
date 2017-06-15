@@ -28,12 +28,11 @@
     "marked": "~0.3.0",
     "through2": "^0.6.5",
     "tsify": "^3.0.1",
-    "typescript": "^2.1.5",
+    "typescript": "^2.3.4",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.9.0"
   },
   "dependencies": {
-    "dom-to-image": "^2.5.2",
     "vue": "^2.1.10",
     "vue-router": "^2.3.0"
   },
