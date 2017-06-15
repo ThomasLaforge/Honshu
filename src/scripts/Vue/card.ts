@@ -24,7 +24,6 @@ export const card = {
         }
     },
     computed : {
-        
     },
     components : {
     },

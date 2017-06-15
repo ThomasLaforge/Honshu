@@ -30,6 +30,36 @@ export class HonshuMap {
         })
 
         this.map = copyArr
+        this.addGapCells()
+    }
+
+    addGapCells() {
+        let i = 0;
+        let j = 0;
+        while(i < this.map.length && j < this.map[0].length){
+            if( this.map[i][j] ){
+                if(!this.map[i - 2][j - 2]){
+
+                }
+            }
+            i++;
+            j++;
+        }
+    }
+
+    addColumn(left = true){
+        if(left){
+            this.map = this.map.map( row => {
+                row.unshift(null)
+                return row
+            })
+        }
+        else {
+            this.map = this.map.map( row => {
+                row.push(null)
+                return row
+            })
+        }
     }
 
 	extract( tileClassName: string, resource?: ResourceType) : Grid {
