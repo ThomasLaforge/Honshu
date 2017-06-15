@@ -3,7 +3,7 @@ var domtoimage = require('dom-to-image');
 
 let template = `
 <div class="card" draggable="true">
-    <button v-if="selected" @click="rotate">rotate</button>
+    <button v-if="selected" @click="rotate(true)">rotate -></button>
     <table class="card-table" :id="'card-' + card.value" @click="clickCard">
         <tr v-for="(row, i) in card.tiles">
             <td v-for="(tile, j) in row" class="grid-box" :class="'tile-type-' + tile.constructor.name" draggable="true" @dragstart="(e) => { onDragStart(e, i, j) }">
@@ -11,6 +11,7 @@ let template = `
             </td>
         </tr>
     </table>
+    <button v-if="selected" @click="rotate(false)">rotate -></button>    
     <div class="card-value">{{card.value}}</div>
 </div>
 `
@@ -41,8 +42,8 @@ export const card = {
         clickCard(){
             this.$emit('click')
         },
-        rotate(){
-            this.card.rotate()
+        rotate(clockwise: boolean){
+            this.card.rotate(clockwise)
         }
     }
 };
