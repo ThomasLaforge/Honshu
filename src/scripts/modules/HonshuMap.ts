@@ -47,6 +47,18 @@ export class HonshuMap {
         }
     }
 
+    addRow(start = true) {
+        let newRow: Tile[] = []
+        this.map[0].forEach( (col) => { newRow.push(null) })
+
+        if(start){
+            this.map.unshift(newRow)
+        }
+        else {
+            this.map.push(newRow)
+        }
+    }
+
     addColumn(left = true){
         if(left){
             this.map = this.map.map( row => {
@@ -59,6 +71,62 @@ export class HonshuMap {
                 row.push(null)
                 return row
             })
+        }
+    }
+
+    removeRow(start = true) {
+        if(start){
+            this.map.shift()
+        }
+        else {
+            this.map.pop()
+        }
+    }
+
+    removeColumn(left = true){
+        if(left){
+            this.map = this.map.map( row => {
+                row.shift()
+                return row
+            })
+        }
+        else {
+            this.map = this.map.map( row => {
+                row.pop()
+                return row
+            })
+        }
+    }
+
+    shrink() {
+        let toShrinkAgain = false;
+
+        // shrink row
+        this.map.forEach((row, i) => {
+            let isEmpty = true;
+            row.forEach((tile, j) => {
+                isEmpty = isEmpty && (!tile || tile === 0)
+            })
+            if (isEmpty) {
+                this.removeRow(i === 0);
+                i--;
+                toShrinkAgain = true;
+            }
+        })
+
+        // this.map.forEach((row, i) => {
+        //     let isEmpty = true;
+        //     row.forEach((tile, j) => {
+        //         isEmpty = isEmpty && (!tile || tile === 0)
+        //     })
+        //     if (isEmpty) {
+        //         this.removeRow(i === 0);
+        //         toShrinkAgain = true;
+        //     }
+        // })
+
+        if (toShrinkAgain) {
+            this.shrink();
         }
     }
 
