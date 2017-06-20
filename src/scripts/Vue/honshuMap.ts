@@ -4,8 +4,17 @@ let template = `
 <div class="grid">
     <table class="grid-table">
         <tr v-for="(row, i) in map.map">
-            <td v-for="(tile, j) in row" class="grid-box" :class="'tile-type-' + tile.constructor.name" @dragover.prevent @drop="(e) => { onDropCard(e, i,j) }" @dragenter="onDragEnterCard">
-                <div v-if="tile.resource || tile.resource === 0" class="tile-resource" :class="'tile-resource-' + tileResourceName(tile)" />
+            <td v-for="(tile, j) in row" 
+                class="grid-box" 
+                :class="'tile-type-' + (tile && tile.constructor.name || 'empty') + ' ' + (!map.tileIsPlayable(i, j) ? 'tile-not-playable' : '') " 
+                @dragover.prevent 
+                @drop="(e) => { onDropCard(e, i,j) }" 
+                @dragenter="onDragEnterCard"
+            >    
+                <div v-if="tile && (tile.resource || tile.resource === 0)" 
+                    class="tile-resource" 
+                    :class="'tile-resource-' + tileResourceName(tile)" 
+                />
             </td>
         </tr>
     </table>
@@ -13,7 +22,7 @@ let template = `
 `
 
 export const honshuMap = {
-    props : ['map'],
+    props : ['map', ''],
     template : template,
     data: function(){
         return {
@@ -26,7 +35,7 @@ export const honshuMap = {
     },
     methods: {
         tileResourceName: function(tile:any){
-            return ResourceType[tile.resource]
+            return !!tile ? ResourceType[tile.resource] : 'empty'
         },
         onDropCard(e: DragEvent, x: number, y: number){
             // console.log('on drop card', x, y)
