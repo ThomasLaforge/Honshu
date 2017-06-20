@@ -40,6 +40,7 @@ export const MAX_PLAYER = 5;
 
 export const CARD_ROW = 3;
 export const CARD_COL = 2;
+export const CARD_MAX_DIM = Math.max(CARD_COL, CARD_ROW)
 
 export const DRAW__DEFAULT_NB_CARD = 6;
 
