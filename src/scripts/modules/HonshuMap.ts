@@ -17,6 +17,7 @@ export class HonshuMap {
         this.addGapCells()
 	}
 
+    // Actions on map
     addCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) {
         let translateX = x - col;
         let translateY = y - row;
@@ -39,7 +40,6 @@ export class HonshuMap {
         let diffBot = spaceLength - ( (this.getNbRow() - 1) - this.getMinTileY() )
         let diffLeft = spaceLength - this.getMinTileX()
         let diffRight = spaceLength - ( (this.getNbCol() - 1) - this.getMaxTileX() )
-        console.log('before switch', diffTop, diffBot, diffLeft, diffRight)
 
         for(let i = 0; i < diffTop; i++) { this.addRow() }
         for(let i = 0; i < diffBot; i++) { this.addRow(false) }
@@ -47,33 +47,7 @@ export class HonshuMap {
         for(let i = 0; i < diffRight; i++) { this.addColumn(false) }
     }
 
-    tileIsPlayable(x: number, y: number){
-        let maxValue = CARD_MAX_DIM - 1
-        let minValue = - maxValue
-        let tileIsPlayable = false
-
-        let i: number, j: number;
-        i = j = minValue;
-
-        if(x === 0 && y === 0){
-            console.log('maxValue, minValue', maxValue, minValue)
-        }
-
-        while ( i <= maxValue && !tileIsPlayable ){
-            while( j <= maxValue && !tileIsPlayable ){
-                if( Math.abs(i) !== Math.abs(j)){
-                    tileIsPlayable = !!this.map[x + i] && !!this.map[x + i][y + j] 
-                }
-                j++
-            }
-            
-            j = minValue
-            i++
-        }
-
-        return tileIsPlayable;
-    }
-
+    // Map modifications
     addRow(start = true) {
         console.log('add row')
         let newRow: Tile[] = []
@@ -159,6 +133,7 @@ export class HonshuMap {
         }
     }
 
+	// Counts //
 	extract( tileClassName: string, resource?: ResourceType) : Grid {
 		let gridArr = this.map.map( row => {
 			return row.map( tile => {
@@ -169,7 +144,6 @@ export class HonshuMap {
 		return new Grid(gridArr);
 	}
 
-	// Count //
     getFieldCount(){
         let gridField = this.extract(FieldTile.name);
         // console.log('grid Field', gridField)
@@ -214,6 +188,30 @@ export class HonshuMap {
     getTotalCount(){
         // console.log(this.getCityCount(), this.getForestCount(), this.getFieldCount(), this.getLakeCount(), this.getManufacturingCount(), this.getBonusCount());
         return this.getCityCount() + this.getForestCount() + this.getFieldCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
+    }
+
+    // Getters
+    tileIsPlayable(x: number, y: number){
+        let maxValue = CARD_MAX_DIM - 1
+        let minValue = - maxValue
+        let tileIsPlayable = false
+
+        let i: number, j: number;
+        i = j = minValue;
+
+        while ( i <= maxValue && !tileIsPlayable ){
+            while( j <= maxValue && !tileIsPlayable ){
+                if( Math.abs(i) !== Math.abs(j)){
+                    tileIsPlayable = !!this.map[x + i] && !!this.map[x + i][y + j] 
+                }
+                j++
+            }
+            
+            j = minValue
+            i++
+        }
+
+        return tileIsPlayable;
     }
 
     getMaxTileX(){
