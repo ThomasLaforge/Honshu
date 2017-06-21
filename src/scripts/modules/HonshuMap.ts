@@ -8,17 +8,28 @@ import { PlayableCard } from './PlayableCard'
 
 import * as _ from 'lodash'
 
+interface LatestAdditionI {
+    card : PlayableCard,
+    row: number,
+    col: number,
+    y: number,
+    x: number,
+    replacedBlock : Tile[]
+}
+
 export class HonshuMap {
     
     private _map: Tile[][];
+    private latestAddition: LatestAdditionI
 
 	constructor(map: Tile[][] = [ [] ]) {
 		this.map = map
+        this.latestAddition = null
         this.addGapCells()
 	}
 
     // Actions on map
-    addCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) {
+    addCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) : boolean {
         let translateX = x - col;
         let translateY = y - row;
         let copyArr = _.cloneDeep(this.map)
@@ -28,7 +39,7 @@ export class HonshuMap {
         let isLakeTile = false;
         card.tiles.forEach( (line, i) => {
             line.forEach( (tile, j) => {
-                let actualMapTile = copyArr[i + translateY][j + translateX]
+                let actualMapTile = copyArr[i + translateY] && copyArr[i + translateY][j + translateX]
                 if( !!actualMapTile ) {
                     if( actualMapTile.type === TileType.Lake ){
                         isLakeTile = true
@@ -38,9 +49,8 @@ export class HonshuMap {
             })
         })
 
-        console.log(nbTileUnderCard)
         if(nbTileUnderCard === 0 || nbTileUnderCard === CARD_AREA || isLakeTile){
-            return
+            return false
         }
 
         // Add Card
@@ -52,6 +62,8 @@ export class HonshuMap {
 
         this.map = copyArr
         this.addGapCells()
+
+        return true
     }
 
     addGapCells() {

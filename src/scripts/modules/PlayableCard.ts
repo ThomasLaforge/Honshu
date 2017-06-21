@@ -14,7 +14,7 @@ export class PlayableCard {
         this.value = value;
         this.clockwise = null;
         if(!(tiles instanceof CardFace) && !Array.isArray(tiles[0])){
-            tiles = _.chunk(tiles, CARD_COL)
+            tiles = _.chunk(<Tile[]>tiles, CARD_COL)
         }
         this.tiles = tiles instanceof CardFace ? tiles.tiles : <Tile[][]>tiles;
     }

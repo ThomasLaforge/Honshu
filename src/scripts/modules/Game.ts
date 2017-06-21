@@ -39,8 +39,13 @@ class Game {
         })
     }
 
-    play(p: Player, card: PlayableCard, col: number, row: number, x: number, y: number ){
-        p.map.addCard(card, col, row, x, y)
+    play(p: Player, card: PlayableCard, row: number, col: number, x: number, y: number ){
+        let player = this.players[0]
+        if( player.map.addCard(card, row, col, y, x) ) {
+            let drawedCards = this.playableCardDeck.drawCards(1);            
+            player.hand.addNewCards(drawedCards)
+            player.hand.removeCards(card)
+        }
     }
 
     // Hand //

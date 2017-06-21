@@ -59,7 +59,7 @@ let app = new Vue({
         addCard(x: number, y: number){
             this.dragdrop.x = x
             this.dragdrop.y = y
-            this.map.addCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.x, this.dragdrop.y)
+            this.game.play(this.game.players[0], this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.y, this.dragdrop.x)
         }
     }
 })

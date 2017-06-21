@@ -17,6 +17,15 @@ class Hand {
 		})
 	}
 
+	removeCards(cards: PlayableCard | PlayableCard[]){
+		if(!Array.isArray(cards)){
+			cards = [cards]	
+		}
+		cards.forEach( (c: PlayableCard) => {
+			this.cards.splice(this.cards.indexOf(c), 1)
+		})
+	}
+
 	getNbCards(): number {
 		return this.cards.length
 	}

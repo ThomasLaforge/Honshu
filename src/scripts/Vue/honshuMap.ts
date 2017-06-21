@@ -22,7 +22,7 @@ let template = `
 `
 
 export const honshuMap = {
-    props : ['map', ''],
+    props : { map: Object, withspaces: { default : false } },
     template : template,
     data: function(){
         return {
