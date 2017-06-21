@@ -35,14 +35,11 @@
 // Main
 let app = new Vue({
     el: '#app',
-    data: (): { map: HonshuMap, player: Player, dragdrop: any } => {
+    data: (): { game: Game, map: HonshuMap, player: Player, dragdrop: any } => {
         return {
-            map: new HonshuMap([
-                [new ForestTile(), new ManufacturingTile(ResourceType.Fish), new LakeTile() ],
-                [ new FieldTile(), new ForestTile(), new ProductionTile(ResourceType.Fish)],
-                [new LakeTile(),  new LakeTile(), new CityTile()] 
-            ]),
-            player: player,
+            game : newGame,
+            map : newGame.players[0].map,
+            player: newGame.players[0],
             dragdrop: {}
         }
     },
