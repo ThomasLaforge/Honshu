@@ -1,5 +1,5 @@
 import { ResourceTile } from './ResourceTile'
-import { ResourceType } from './Honshu'
+import { ResourceType, TileType } from './Honshu'
 
 export class ManufacturingTile extends ResourceTile {
 
@@ -7,7 +7,7 @@ export class ManufacturingTile extends ResourceTile {
     private _complete: boolean;  
 
     constructor(resourceType: ResourceType, points = 2, complete = false){
-        super(resourceType);
+        super(resourceType, TileType.Manufacturing);
         this._points = points;
         this._complete = complete;
     }

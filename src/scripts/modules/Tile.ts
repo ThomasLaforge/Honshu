@@ -1,7 +1,9 @@
 export abstract class Tile {
 
-    constructor(){
-        console.log('new Tile')
+    public type: TileType;
+
+    constructor(tileType: TileType){
+        this.type = tileType
     }
 
 }

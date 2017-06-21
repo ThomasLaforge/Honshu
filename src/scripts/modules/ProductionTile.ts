@@ -1,12 +1,12 @@
 import { ResourceTile } from './ResourceTile'
-import { ResourceType } from './Honshu'
+import { ResourceType, TileType } from './Honshu'
 
 export class ProductionTile extends ResourceTile {
 
     private _resourceUsed: boolean;
 
     constructor(resourceType: ResourceType, resourceUsed = false){
-        super(resourceType);
+        super(resourceType, TileType.Production);
         this._resourceUsed = resourceUsed;
     }
 
