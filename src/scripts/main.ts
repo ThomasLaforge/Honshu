@@ -55,7 +55,6 @@ let app = new Vue({
     },
     methods: {
         selectCard(card: PlayableCard, i: number, j: number){
-            console.log('main:selectCard:', card, i, j)
             this.dragdrop.card = card;
             this.dragdrop.i = i;
             this.dragdrop.j = j;
@@ -63,7 +62,6 @@ let app = new Vue({
         addCard(x: number, y: number){
             this.dragdrop.x = x
             this.dragdrop.y = y
-            console.log('main:addCard:', this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.x, this.dragdrop.y)          
             this.map.addCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.x, this.dragdrop.y)
         }
     }

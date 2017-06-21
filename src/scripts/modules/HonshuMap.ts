@@ -49,7 +49,6 @@ export class HonshuMap {
 
     // Map modifications
     addRow(start = true) {
-        console.log('add row')
         let newRow: Tile[] = []
         this.map[0].forEach( (col) => { newRow.push(null) })
 
@@ -62,7 +61,6 @@ export class HonshuMap {
     }
 
     addColumn(left = true){
-        console.log('add colum')
         if(left){
             this.map = this.map.map( row => {
                 row.unshift(null)
