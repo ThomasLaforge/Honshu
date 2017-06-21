@@ -3,7 +3,7 @@ import { ManufacturingTile } from './ManufacturingTile'
 import { ProductionTile } from './ProductionTile'
 import { FieldTile, CityTile, ForestTile, LakeTile } from './BasicTile'
 import { Grid } from './Grid'
-import { TileType, ResourceType, FINAL_COUNT__FIELD_VALUE, FINAL_COUNT__CITY_VALUE, FINAL_COUNT__FOREST_VALUE, FINAL_COUNT__LAKE_VALUE, CARD_MAX_DIM } from './Honshu'
+import { TileType, ResourceType, FINAL_COUNT__FIELD_VALUE, FINAL_COUNT__CITY_VALUE, FINAL_COUNT__FOREST_VALUE, FINAL_COUNT__LAKE_VALUE, CARD_MAX_DIM, CARD_AREA } from './Honshu'
 import { PlayableCard } from './PlayableCard'
 
 import * as _ from 'lodash'
@@ -21,9 +21,29 @@ export class HonshuMap {
     addCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) {
         let translateX = x - col;
         let translateY = y - row;
-
         let copyArr = _.cloneDeep(this.map)
 
+        // Control
+        let nbTileUnderCard = 0;
+        let isLakeTile = false;
+        card.tiles.forEach( (line, i) => {
+            line.forEach( (tile, j) => {
+                let actualMapTile = copyArr[i + translateY][j + translateX]
+                if( !!actualMapTile ) {
+                    if( actualMapTile.type === TileType.Lake ){
+                        isLakeTile = true
+                    }
+                    nbTileUnderCard++
+                }
+            })
+        })
+
+        console.log(nbTileUnderCard)
+        if(nbTileUnderCard === 0 || nbTileUnderCard === CARD_AREA || isLakeTile){
+            return
+        }
+
+        // Add Card
         card.tiles.forEach( (line, i) => {
             line.forEach( (tile, j) => {
                 copyArr[i + translateY][j + translateX] = tile;
@@ -106,7 +126,7 @@ export class HonshuMap {
         this.map.forEach((row, i) => {
             let isEmpty = true;
             row.forEach((tile, j) => {
-                isEmpty = isEmpty && (!tile || tile === 0)
+                isEmpty = isEmpty && !tile
             })
             if (isEmpty) {
                 this.removeRow(i === 0);
@@ -200,7 +220,7 @@ export class HonshuMap {
         while ( i <= maxValue && !tileIsPlayable ){
             while( j <= maxValue && !tileIsPlayable ){
                 if( Math.abs(i) !== Math.abs(j)){
-                    tileIsPlayable = !!this.map[x + i] && !!this.map[x + i][y + j] 
+                    tileIsPlayable = !!this.map[x + i] && !!this.map[x + i][y + j]
                 }
                 j++
             }
