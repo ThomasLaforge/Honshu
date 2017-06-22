@@ -9,7 +9,7 @@ let template = `
                 :class="'tile-type-' + (tile && tile.constructor.name || 'empty') + ' ' + (!map.tileIsPlayable(i, j) ? 'tile-not-playable' : '') " 
                 @dragover.prevent 
                 @drop="(e) => { onDropCard(e, i,j) }" 
-                @dragenter="onDragEnterCard"
+                @dragenter="(e) => { onDragEnterCard(e, i,j) }"
             >    
                 <div v-if="tile && (tile.resource || tile.resource === 0)" 
                     class="tile-resource" 
@@ -41,8 +41,9 @@ export const honshuMap = {
             // console.log('on drop card', x, y)
             this.$emit('add-card', x, y)
         },
-        onDragEnterCard(e: DragEvent){
+        onDragEnterCard(e: DragEvent, x: number, y: number){
             // console.log('on Drag Enter card', e)
+            this.$emit('drag-card', x, y)
         }
     }
 };

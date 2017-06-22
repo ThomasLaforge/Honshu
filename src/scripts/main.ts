@@ -51,15 +51,16 @@ let app = new Vue({
         infoBar
     },
     methods: {
-        selectCard(card: PlayableCard, i: number, j: number){
+        selectCard(card: PlayableCard, i: number, j: number) {
             this.dragdrop.card = card;
             this.dragdrop.i = i;
             this.dragdrop.j = j;
         },
+        dragCard(x: number, y: number){
+            console.log(this.player.map.getCellsUnderCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, y, x))
+        },
         addCard(x: number, y: number){
-            this.dragdrop.x = x
-            this.dragdrop.y = y
-            this.game.play(this.game.players[0], this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, this.dragdrop.y, this.dragdrop.x)
+            this.game.play(this.game.players[0], this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, y, x)
         }
     }
 })
