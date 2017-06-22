@@ -17,6 +17,15 @@ interface LatestAdditionI {
     replacedBlock : Tile[]
 }
 
+interface GlobalScoresInterface {
+    city: number,
+    forest: number,
+    field : number,
+    lake : number,
+    production : number,
+    total: number
+}
+
 export class HonshuMap {
     
     private _map: Tile[][];
@@ -174,25 +183,25 @@ export class HonshuMap {
 		return new Grid(gridArr);
 	}
 
-    getFieldCount(){
+    getFieldScore(){
         let gridField = this.extract(FieldTile.name);
         // console.log('grid Field', gridField)
 		return gridField.getHowManyOccurence() * FINAL_COUNT__FIELD_VALUE;
     }
 
-    getCityCount(){
+    getCityScore(){
         let gridCity = this.extract(CityTile.name);
         // console.log('grid City', gridCity, gridCity.getLongestChain())        
         return gridCity.getLongestChain() * FINAL_COUNT__CITY_VALUE;
     }
 
-    getForestCount(){
+    getForestScore(){
         let gridForest = this.extract(ForestTile.name);
         // console.log('grid Forest', gridForest)
         return gridForest.getHowManyOccurence() * FINAL_COUNT__FOREST_VALUE;
     }
     
-    getLakeCount(){
+    getLakeScore(){
         let gridLake = this.extract(LakeTile.name);
         // console.log('grid Lake', gridLake)        
 		let areaLengths = gridLake.getAllAreaSize();
@@ -200,27 +209,72 @@ export class HonshuMap {
         return _.sum(areaLengths.map(areaLength => { return (areaLength - 1) * FINAL_COUNT__LAKE_VALUE}) );
     }
 
-    getManufacturingCount(){
-        let cpt = 0;
-        return cpt;
+    getNbResources(type : ResourceType){
+        return this.getTilesOnOneArray().filter( (t: ProductionTile) => { return t && t.type === TileType.Production && t.resource === type}).length
     }
 
-    getBonusCount(){
-        let cpt = 0;
+    getManufacturesScore(type : ResourceType){
+        let score = 0;
+        
+        let manufactures = <ManufacturingTile[]>this.getTilesOnOneArray().filter( (t: ManufacturingTile) => { return t && t.type === TileType.Manufacturing && t.resource && t.resource === type})
+        let manufacturesSorted = _.sortBy(manufactures, (t) => { return t.points })
 
-        // if(this.bonus){
+        for(let i = 0; i < Math.min(manufacturesSorted.length, this.getNbResources(type)); i++){
+            score += manufacturesSorted[i].points
+        }
 
-        // }
-
-        return cpt;        
+        return score
     }
 
-    getTotalCount(){
-        // console.log(this.getCityCount(), this.getForestCount(), this.getFieldCount(), this.getLakeCount(), this.getManufacturingCount(), this.getBonusCount());
-        return this.getCityCount() + this.getForestCount() + this.getFieldCount() + this.getLakeCount() + this.getManufacturingCount() + this.getBonusCount();
+    getResourcesScore(){
+        let score = 0;
+        Object.keys(ResourceType).forEach( t => {
+            let type = parseInt(t)
+            score += this.getManufacturesScore(type)
+        })
+        return score
+    }
+
+    getResourcesCount(){
+        let res : { [key: number] : number } = {}
+        Object.keys(ResourceType).forEach( t => {
+            let type = parseInt(t)
+            if(!isNaN(type)){
+                res[type] = this.getNbResources(type)
+            }
+        })
+
+        return res
+    }
+
+    getTotalScore(){
+        // console.log(this.getCityScore(), this.getForestScore(), this.getFieldScore(), this.getLakeScore(), this.getManufacturingScore(), this.getBonusScore());
+        return this.getCityScore() + this.getForestScore() + this.getFieldScore() + this.getLakeScore() + this.getResourcesScore();
+    }
+
+    getScores(){
+        return {
+            cities      : this.getCityScore(),
+            forest      : this.getForestScore(),
+            field       : this.getFieldScore(),
+            lake        : this.getLakeScore(),
+            resources   : this.getResourcesScore(),
+            total       : this.getTotalScore()
+        }
     }
 
     // Getters
+    getCellsUnderCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) {
+        console.log(row,  col, y, x)
+        let translateX = x - col;
+        let translateY = y - row;
+        return _.flattenDeep(card.tiles.map( (line, i) => {
+            return line.map( (tile, j) => {
+                console.log(i, translateY, j, translateX)
+                return { x: i + translateY, y : j + translateX}
+            })
+        }))
+    }
     tileIsPlayable(x: number, y: number){
         let maxValue = CARD_MAX_DIM - 1
         let minValue = - maxValue
@@ -242,6 +296,14 @@ export class HonshuMap {
         }
 
         return tileIsPlayable;
+    }
+
+    getTilesOnOneArray(){
+        let res: Tile[] = []
+        this.map.forEach( line => {
+            res = res.concat(line)
+        })
+        return res
     }
 
     getMaxTileX(){
