@@ -35,8 +35,8 @@ export const card = {
             // console.log('on drag start', i, j)
             this.$emit('select-card', this.card, i, j)
             let node = document.getElementById('card-' + this.card.value);
-            let tileWidth = 27;
-            e.dataTransfer.setDragImage(node, tileWidth * j + tileWidth / 2 , tileWidth * i + tileWidth / 2)
+            let tileWidth = 22;
+            e.dataTransfer.setDragImage(node, tileWidth * j + j*tileWidth / 2 + tileWidth, tileWidth * i + i * tileWidth / 2 + tileWidth)
         },
         clickCard(){
             this.$emit('click')

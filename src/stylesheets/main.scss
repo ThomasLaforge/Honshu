@@ -9,6 +9,7 @@ body {
 
 .grid-table{
     margin: auto;
+    border-collapse: collapse;
 }
 
 .grid-box{
@@ -27,7 +28,7 @@ body {
 }
 
 .tile-not-playable{
-    background-color: grey;
+    background-color: rgba(grey, 0.6);
 }
 
 .tile-type-ForestTile{
@@ -86,7 +87,12 @@ body {
     display: flex;
     justify-content:space-around;
     .card{
-        .card-value{
+        .card-table {
+            cursor: move; 
+            border-collapse: collapse;
+        }
+
+        .card-value {
             text-align: center;
         }
     }
