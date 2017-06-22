@@ -1,0 +1,14 @@
+# Current State
+
+- Map drawed
+- Card can be added to the map
+- 
+
+# TODO
+
+- Colored tile when possible / impossible to put a card
+- Get amount of each resource
+- Count points with manufactures
+- Logic of solo game
+- Show amount of points to win on manufacture tiles
+- Mulitplayer
