@@ -265,13 +265,11 @@ export class HonshuMap {
 
     // Getters
     getCellsUnderCard( card: PlayableCard, row: number,  col: number, y: number, x: number ) {
-        console.log(row,  col, y, x)
         let translateX = x - col;
         let translateY = y - row;
         return _.flattenDeep(card.tiles.map( (line, i) => {
             return line.map( (tile, j) => {
-                console.log(i, translateY, j, translateX)
-                return { x: i + translateY, y : j + translateX}
+                return { x: i + translateX, y : j + translateY}
             })
         }))
     }

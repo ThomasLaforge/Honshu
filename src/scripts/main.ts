@@ -13,15 +13,14 @@
     import { ForestTile, CityTile, LakeTile, FieldTile } from './modules/BasicTile'
     let newGame  = new Game();
     let player = newGame.players[0]
-    console.log(player)
 
 // Game Config
 
 // Vue
-    import { grid }       from './Vue/grid';
-    import { honshuMap }       from './Vue/honshuMap';
-    import { infoBar }       from './Vue/infoBar';
-    import { hand }       from './Vue/hand';
+    import { grid }       from './components/grid';
+    import { honshuMap }  from './components/honshuMap';
+    import { infoBar }    from './components/infoBar';
+    import { hand }       from './components/hand';
 
 // VueIt8n
     // import * as VueI18n from 'vue-i18n'
@@ -35,12 +34,13 @@
 // Main
 let app = new Vue({
     el: '#app',
-    data: (): { game: Game, map: HonshuMap, player: Player, dragdrop: any } => {
+    data: (): { game: Game, map: HonshuMap, player: Player, dragdrop: any, hovercoords : { x: number, y: number}[] } => {
         return {
             game : newGame,
             map : newGame.players[0].map,
             player: newGame.players[0],
-            dragdrop: {}
+            dragdrop: {},
+            hovercoords : []
         }
     },
     computed: {
@@ -57,7 +57,7 @@ let app = new Vue({
             this.dragdrop.j = j;
         },
         dragCard(x: number, y: number){
-            console.log(this.player.map.getCellsUnderCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, y, x))
+            this.hovercoords = this.player.map.getCellsUnderCard(this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, y, x)
         },
         addCard(x: number, y: number){
             this.game.play(this.game.players[0], this.dragdrop.card, this.dragdrop.i, this.dragdrop.j, y, x)

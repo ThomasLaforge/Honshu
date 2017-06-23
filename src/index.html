@@ -21,7 +21,7 @@
         <h1 class="title-top">Honshu</h1>
 
         <div id="app">
-            <honshu-map @add-card="addCard" @drag-card="dragCard" :map="map"></honshu-map>
+            <honshu-map @add-card="addCard" @drag-card="dragCard" :hovercoords="hovercoords" :map="map"></honshu-map>
             <hand @select-card="selectCard" :hand="player.hand"></hand>
             <info-bar :scores="player.map.getScores()" :resources="map.getResourcesCount()"></info-bar>
         </div>

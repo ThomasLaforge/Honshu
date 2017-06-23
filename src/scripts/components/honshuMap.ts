@@ -6,7 +6,7 @@ let template = `
         <tr v-for="(row, i) in map.map">
             <td v-for="(tile, j) in row" 
                 class="grid-box" 
-                :class="'tile-type-' + (tile && tile.constructor.name || 'empty') + ' ' + (!map.tileIsPlayable(i, j) ? 'tile-not-playable' : '') " 
+                :class="'tile-type-' + (tile && tile.constructor.name || 'empty') + ' ' + (!map.tileIsPlayable(i, j) ? 'tile-not-playable' : '') + (cardHover(i, j) ? ' card-hover' : '') " 
                 @dragover.prevent 
                 @drop="(e) => { onDropCard(e, i,j) }" 
                 @dragenter="(e) => { onDragEnterCard(e, i,j) }"
@@ -22,7 +22,7 @@ let template = `
 `
 
 export const honshuMap = {
-    props : { map: Object, withspaces: { default : false } },
+    props : { map: Object, hovercoords : Array,  withspaces: { default : false } },
     template : template,
     data: function(){
         return {
@@ -44,6 +44,9 @@ export const honshuMap = {
         onDragEnterCard(e: DragEvent, x: number, y: number){
             // console.log('on Drag Enter card', e)
             this.$emit('drag-card', x, y)
+        },
+        cardHover(x: number, y: number){
+            return this.hovercoords && this.hovercoords.filter( (obj: {x: number, y: number}) => { return obj.x === x && obj.y === y }).length === 1
         }
     }
 };
