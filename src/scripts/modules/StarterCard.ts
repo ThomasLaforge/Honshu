@@ -7,7 +7,7 @@ export class StarterCard {
     private _currentFace: CardFaceStarter;
 
     constructor(cardFaces: CardFaceStarter[]){
-        console.log('new starter card')
+        // console.log('new starter card')
     }
 
     getCardFaceByFace(hopedface: FaceVersion){

@@ -32,7 +32,6 @@ export const hand = {
             this.$emit('select-card', card, i, j)
         },
         selectACard(key: number){
-            console.log('select card', key, this.selectedCardIndex)
             this.selectedCardIndex = key === this.selectedCardIndex ? null : key
         }
     }
