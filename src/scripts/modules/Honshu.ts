@@ -44,6 +44,7 @@ export const CARD_MAX_DIM = Math.max(CARD_COL, CARD_ROW)
 export const CARD_AREA = CARD_ROW * CARD_COL
 
 export const DRAW__DEFAULT_NB_CARD = 6;
+export const NB_TURN = 2;
 
 export const CHOSE_CARD__NB_CARD_WHEN_SWITCH_HANDS = 3;
 
