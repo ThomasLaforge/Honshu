@@ -26,8 +26,15 @@ class Hand {
 		})
 	}
 
+	reset() {
+		this.cards = []
+	}
+
 	getNbCards(): number {
 		return this.cards.length
+	}
+	lenght() : number {
+		return this.getNbCards()
 	}
 
 	public get cards(): PlayableCard[] {
