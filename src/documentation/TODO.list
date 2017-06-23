@@ -1,14 +1,19 @@
 # Current State
 
 - Map drawed
-- Card can be added to the map
-- 
+- Card can be added to the map (after controll)
+- Points are calculated
 
 # TODO
 
-- Colored tile when possible / impossible to put a card
-- Get amount of each resource
-- Count points with manufactures
-- Logic of solo game
-- Show amount of points to win on manufacture tiles
-- Mulitplayer
+- [.] Colored tile when possible / impossible to put a card
+- [x] Get amount of each resource
+- [x] Count points with manufactures
+- [x] Show amount of points to win on manufacture tiles
+- [ ] Draw score sheets
+- [ ] Export tile draw on a components and use it on card and map
+- [x] Logic of solo game
+- [x] HighScores
+- [ ] Mulitplayer
+- [ ] Move last Card added
+- [ ] Put some tiles under other tiles
