@@ -17,13 +17,13 @@ interface LatestAdditionI {
     replacedBlock : Tile[]
 }
 
-interface GlobalScoresInterface {
-    city: number,
+export interface GlobalScoresInterface {
+    cities: number,
     forest: number,
     field : number,
     lake : number,
-    production : number,
-    total: number
+    total: number,
+    resources: number
 }
 
 export class HonshuMap {
@@ -252,7 +252,7 @@ export class HonshuMap {
         return this.getCityScore() + this.getForestScore() + this.getFieldScore() + this.getLakeScore() + this.getResourcesScore();
     }
 
-    getScores(){
+    getScores() : GlobalScoresInterface{
         return {
             cities      : this.getCityScore(),
             forest      : this.getForestScore(),
