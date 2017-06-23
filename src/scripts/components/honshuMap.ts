@@ -14,7 +14,9 @@ let template = `
                 <div v-if="tile && (tile.resource || tile.resource === 0)" 
                     class="tile-resource" 
                     :class="'tile-resource-' + tileResourceName(tile)" 
-                />
+                >
+                    {{tile.points}}
+                </div>
             </td>
         </tr>
     </table>

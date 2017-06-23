@@ -7,7 +7,7 @@ let template = `
     <table class="card-table" :id="'card-' + card.value" @click="clickCard">
         <tr v-for="(row, i) in card.tiles">
             <td v-for="(tile, j) in row" class="grid-box" :class="'tile-type-' + tile.constructor.name" draggable="true" @dragstart="(e) => { onDragStart(e, i, j) }">
-                <div v-if="tile.resource || tile.resource === 0" class="tile-resource" :class="'tile-resource-' + tileResourceName(tile)" />
+                <div v-if="tile.resource || tile.resource === 0" class="tile-resource" :class="'tile-resource-' + tileResourceName(tile)" >{{ tile.points }}</div>
             </td>
         </tr>
     </table>
