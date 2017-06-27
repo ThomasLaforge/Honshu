@@ -22,19 +22,20 @@ export abstract class Game {
     private _highscores: HighScores;
 
 	constructor(p: Player | Player[], bonus: Bonus = null, autostart = true) {
-        if(autostart){ 
-            // this.start();
-        }
         if(Array.isArray(p)){
             this.players = p
         }
-        else{
+        else {
             this.player = p
         }
         this.turn = 1
         this.highscores = new HighScores()
         this.playableCardDeck = new PlayableCardDeck();
+        this.timer = new Timer();
         this.draw();
+        if(autostart){ 
+            this.start();
+        }
     }
 
     // State //
@@ -49,7 +50,7 @@ export abstract class Game {
     abstract draw(nbCardToDraw?: number) : void
     abstract play(card: PlayableCard, row: number, col: number, x: number, y: number, p?: Player ): void
 
-    // Hand //s
+    // Hand //
 
 
 // Getters / Setters
