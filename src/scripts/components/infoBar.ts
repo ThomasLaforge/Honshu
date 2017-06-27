@@ -3,17 +3,38 @@ import { ResourceType } from '../modules/Honshu'
 let template = `
 <div class="infobar">
     <div class="info">
-        <div class="info-title info-title-score">Scores</div>
-        <div class="info-value info-value-score">Total : {{ scores.total }}</div>
-        <div class="info-value info-value-score">Forest : {{ scores.forest }}</div>
-        <div class="info-value info-value-score">Lake : {{ scores.lake }}</div>
-        <div class="info-value info-value-score">Cities : {{ scores.cities }}</div>
-        <div class="info-value info-value-score">Resources : {{ scores.resources }}</div>
-        <div>Resources</div>
-        <div>Pierre : {{ stoneStock }}</div>
-        <div>Or : {{ goldStock }}</div>
-        <div>Poisson : {{ fishStock }}</div>
-        <div>Fer : {{ ironStock }}</div>
+        <table>
+            <caption class="info-title info-title-score">Scores</caption>
+            <tr>
+                <th class="info-value info-value-score">Forest</th>
+                <th class="info-value info-value-score">Lake</th>
+                <th class="info-value info-value-score">Cities</th>
+                <th class="info-value info-value-score">Resources</th>
+                <th class="info-value info-value-score">Total</th>
+            </tr>
+            <tr>
+                <td>{{ scores.forest }}</td>
+                <td>{{ scores.lake }}</td>
+                <td>{{ scores.cities }}</td>
+                <td>{{ scores.resources }}</td>
+                <td>{{ scores.total }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <caption>Resources</caption>
+            <tr>
+                <th>Pierre</th>
+                <th>Or</th>
+                <th>Poisson</th>
+                <th>Fer</th>
+            </tr>
+            <tr>
+                <td>{{ stoneStock }}</td>
+                <td>{{ goldStock }}</td>
+                <td>{{ fishStock }}</td>
+                <td>{{ ironStock }}</td>
+            </tr>
     </div>
 </div>
 `
