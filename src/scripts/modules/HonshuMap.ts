@@ -217,7 +217,7 @@ export class HonshuMap {
         let score = 0;
         
         let manufactures = <ManufacturingTile[]>this.getTilesOnOneArray().filter( (t: ManufacturingTile) => { return t && t.type === TileType.Manufacturing && t.resource && t.resource === type})
-        let manufacturesSorted = _.sortBy(manufactures, (t) => { return t.points })
+        let manufacturesSorted = _.sortBy(manufactures, (t) => { return t.points }).reverse()
 
         for(let i = 0; i < Math.min(manufacturesSorted.length, this.getNbResources(type)); i++){
             score += manufacturesSorted[i].points
