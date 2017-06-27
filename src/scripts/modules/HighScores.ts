@@ -23,21 +23,19 @@ export class HighScores {
         this._highscores = highscores || [];
     }
 
-    save(){
-        localStorage.setItem('highscores', JSON.stringify(this.highscores))
-    }
-
-    sort(betterFirst = true){
-        this.highscores = _.sortBy(this.highscores, ['score', 'date'])
-        if(betterFirst){
-            this.highscores = this.highscores.reverse();
-        }
-    }
-
     add(highscore: HighScoreElt){
         // TODO : Check integrity
         this.highscores.push(highscore)
         this.save()
+    }
+
+    save(){
+        localStorage.setItem('highscores', JSON.stringify(this.highscores))
+    }
+
+    getSorted(betterFirst = true){
+        let highscores = _.sortBy(this.highscores, ['score', 'date'])
+        return betterFirst ? highscores.reverse() : highscores;
     }
 
     public get highscores(): HighScoreElt[] {
